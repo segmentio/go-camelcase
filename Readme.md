@@ -1,4 +1,3 @@
-
 # go-camelcase
 
 Fast camelcase implementation that avoids Go's regexps. Direct fork of our [snakecase](https://github.com/segmentio/go-snakecase) implementation.
