@@ -1,9 +1,8 @@
-// Package snakecase - Super-Fast snake-case implementation.
 package strcase
 
 const underscoreByte = '_'
 
-// SnakeCase the given string.
+// SnakeCase transforms the given string as `snake_case`.
 func SnakeCase(s string) string {
 	idx := 0
 	hasLower := false
@@ -71,11 +70,7 @@ func SnakeCase(s string) string {
 			idx++
 		}
 	}
-	return string(b) // return manipulated string
-}
-
-func isAlphanumeric(c byte) bool {
-	return isLower(c) || isUpper(c) || isDigit(c)
+	return string(b)
 }
 
 var asciiLowercaseArray = [256]byte{

@@ -4,7 +4,14 @@ import (
 	"testing"
 )
 
-func BenchmarkUnchangedLong(b *testing.B) {
+func BenchmarkSnakeCase(b *testing.B) {
+	s := "some sample text here_noething:too$amazing"
+	b.SetBytes(int64(len(s)))
+	for i := 0; i < b.N; i++ {
+		SnakeCase(s)
+	}
+}
+func BenchmarkSnakeUnchangedLong(b *testing.B) {
 	var s = "invite_your_customers_add_invites"
 	b.SetBytes(int64(len(s)))
 	for n := 0; n < b.N; n++ {
@@ -12,7 +19,7 @@ func BenchmarkUnchangedLong(b *testing.B) {
 	}
 }
 
-func BenchmarkUnchangedSimple(b *testing.B) {
+func BenchmarkSnakeUnchangedSimple(b *testing.B) {
 	var s = "sample_text"
 	b.SetBytes(int64(len(s)))
 	for n := 0; n < b.N; n++ {
@@ -20,14 +27,15 @@ func BenchmarkUnchangedSimple(b *testing.B) {
 	}
 }
 
-func BenchmarkModifiedUnicode(b *testing.B) {
+func BenchmarkSnakeModifiedUnicode(b *testing.B) {
 	var s = "ß_ƒ_foo"
 	b.SetBytes(int64(len(s)))
 	for n := 0; n < b.N; n++ {
 		SnakeCase(s)
 	}
 }
-func BenchmarkModifiedLong(b *testing.B) {
+
+func BenchmarkSnakeModifiedLong(b *testing.B) {
 	var s = "inviteYourCustomersAddInvites"
 	b.SetBytes(int64(len(s)))
 	for n := 0; n < b.N; n++ {
@@ -35,7 +43,7 @@ func BenchmarkModifiedLong(b *testing.B) {
 	}
 }
 
-func BenchmarkModifiedLongSpecialChars(b *testing.B) {
+func BenchmarkSnakeModifiedLongSpecialChars(b *testing.B) {
 	var s = "FOO:BAR$BAZ__Sample    Text___"
 	b.SetBytes(int64(len(s)))
 	for n := 0; n < b.N; n++ {
@@ -43,7 +51,7 @@ func BenchmarkModifiedLongSpecialChars(b *testing.B) {
 	}
 }
 
-func BenchmarkModifiedSimple(b *testing.B) {
+func BenchmarkSnakeModifiedSimple(b *testing.B) {
 	var s = "sample text"
 	b.SetBytes(int64(len(s)))
 	for n := 0; n < b.N; n++ {
@@ -51,7 +59,7 @@ func BenchmarkModifiedSimple(b *testing.B) {
 	}
 }
 
-func BenchmarkModifiedUnicode2(b *testing.B) {
+func BenchmarkSnakeModifiedUnicode2(b *testing.B) {
 	var s = "ẞ•¶§ƒ˚foo˙∆˚¬"
 	b.SetBytes(int64(len(s)))
 	for n := 0; n < b.N; n++ {
@@ -59,7 +67,7 @@ func BenchmarkModifiedUnicode2(b *testing.B) {
 	}
 }
 
-func BenchmarkLeadingUnderscoresDigitUpper(b *testing.B) {
+func BenchmarkSnakeLeadingUnderscoresDigitUpper(b *testing.B) {
 	var s = "_5TEst"
 	b.SetBytes(int64(len(s)))
 	for n := 0; n < b.N; n++ {
@@ -67,7 +75,7 @@ func BenchmarkLeadingUnderscoresDigitUpper(b *testing.B) {
 	}
 }
 
-func BenchmarkDigitUpper(b *testing.B) {
+func BenchmarkSnakeDigitUpper(b *testing.B) {
 	var s = "5TEst"
 	b.SetBytes(int64(len(s)))
 	for n := 0; n < b.N; n++ {
@@ -75,7 +83,7 @@ func BenchmarkDigitUpper(b *testing.B) {
 	}
 }
 
-func BenchmarkDigitUpper2(b *testing.B) {
+func BenchmarkSnakeDigitUpper2(b *testing.B) {
 	var s = "lk0B@bFmjrLQ_Z6YL"
 	b.SetBytes(int64(len(s)))
 	for n := 0; n < b.N; n++ {

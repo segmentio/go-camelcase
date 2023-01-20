@@ -11,7 +11,7 @@ func PascalCase(s string) string {
 		for i < l && !isWord(s[i]) {
 			i++
 		}
-		
+
 		// set the first byte to uppercase if it needs to
 		if i < l {
 			c := s[i]
@@ -29,7 +29,7 @@ func PascalCase(s string) string {
 			}
 
 			// the sequence starts with and uppercase letter, we append
-			// all following uppercase letters as equivalent lowercases
+			// all following uppercase letters as equivalent lowercase's
 			if isUpper(c) {
 				b = append(b, c)
 				i++

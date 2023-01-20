@@ -25,17 +25,23 @@ func TestCamelCase(t *testing.T) {
 		{"$something%", "something"},
 		{"something.com", "somethingCom"},
 		{"•¶§ƒ˚foo˙∆˚¬", "foo"},
+		{"CStringRef", "cstringRef"},
+		{"5test", "5Test"},
+		{"test5", "test5"},
+		{"THE5r", "the5R"},
+		{"5TEst", "5Test"},
+		{"_5TEst", "5Test"},
+		{"@%#&5TEst", "5Test"},
+		{"edf_6N", "edf6N"},
+		{"f_pX9", "fPX9"},
+		{"p_z9Rg", "pZ9Rg"},
+		{"2FA Enabled", "2FaEnabled"},
+		{"Enabled 2FA", "enabled2Fa"},
 	}
 
 	for _, sample := range samples {
 		if out := CamelCase(sample.str); out != sample.out {
 			t.Errorf("got %q from %q, expected %q", out, sample.str, sample.out)
 		}
-	}
-}
-
-func BenchmarkCamelCase(t *testing.B) {
-	for i := 0; i < t.N; i++ {
-		CamelCase("some sample text here_noething:too$amazing")
 	}
 }

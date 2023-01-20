@@ -21,17 +21,23 @@ func TestPascalCase(t *testing.T) {
 		{"$something%", "Something"},
 		{"something.com", "SomethingCom"},
 		{"•¶§ƒ˚foo˙∆˚¬", "Foo"},
+		{"CStringRef", "CstringRef"},
+		{"5test", "5Test"},
+		{"test5", "Test5"},
+		{"THE5r", "The5R"},
+		{"5TEst", "5Test"},
+		{"_5TEst", "5Test"},
+		{"@%#&5TEst", "5Test"},
+		{"edf_6N", "Edf6N"},
+		{"f_pX9", "FPX9"},
+		{"p_z9Rg", "PZ9Rg"},
+		{"2FA Enabled", "2FaEnabled"},
+		{"Enabled 2FA", "Enabled2Fa"},
 	}
 
 	for _, sample := range samples {
 		if out := PascalCase(sample.str); out != sample.out {
 			t.Errorf("got %q from %q, expected %q", out, sample.str, sample.out)
 		}
-	}
-}
-
-func BenchmarkPascalCase(t *testing.B) {
-	for i := 0; i < t.N; i++ {
-		PascalCase("some sample text here_noething:too$amazing")
 	}
 }

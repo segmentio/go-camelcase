@@ -1,11 +1,10 @@
-// Fast camel-case implementation.
 package strcase
 
-// CamelCase the given string.
+// CamelCase transforms the given string as `camelCase`.
 // Wikipedia writes it as two separate words: camel case.
 // see URL: https://en.wikipedia.org/wiki/Camel_case
-// This is confusing, I hope you'll forgive me for using CamelCase
-// instead of Camelcase.
+// This is confusing because uppercase and lowercase are written as one word
+// I hope you'll forgive me for using CamelCase instead of Camelcase.
 func CamelCase(s string) string {
 	b := make([]byte, 0, 64)
 	l := len(s)
@@ -35,7 +34,7 @@ func CamelCase(s string) string {
 			}
 
 			// the sequence starts with and uppercase letter, we append
-			// all following uppercase letters as equivalent lowercases
+			// all following uppercase letters as equivalent lowercase's
 			if isUpper(c) {
 				b = append(b, c)
 				i++
@@ -70,38 +69,4 @@ func CamelCase(s string) string {
 	}
 
 	return string(b)
-}
-
-func isWord(c byte) bool {
-	return isLetter(c) || isDigit(c)
-}
-
-func isLetter(c byte) bool {
-	return isLower(c) || isUpper(c)
-}
-
-func isUpper(c byte) bool {
-	return c >= 'A' && c <= 'Z'
-}
-
-func isLower(c byte) bool {
-	return c >= 'a' && c <= 'z'
-}
-
-func isDigit(c byte) bool {
-	return c >= '0' && c <= '9'
-}
-
-func toLower(c byte) byte {
-	if isUpper(c) {
-		return c + ('a' - 'A')
-	}
-	return c
-}
-
-func toUpper(c byte) byte {
-	if isLower(c) {
-		return c - ('a' - 'A')
-	}
-	return c
 }

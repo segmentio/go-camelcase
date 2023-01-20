@@ -1,0 +1,62 @@
+goos: darwin
+goarch: arm64
+pkg: github.com/veggiemonk/strcase
+BenchmarkCamelCase-10                                  	23852043	        50.22 ns/op	 836.30 MB/s	      48 B/op	       1 allocs/op
+BenchmarkCamelCase2UnchangedLong-10                    	29225404	        40.94 ns/op	 806.15 MB/s	      32 B/op	       1 allocs/op
+BenchmarkCamelCase2UnchangedSimple-10                  	53479212	        22.19 ns/op	 495.75 MB/s	      16 B/op	       1 allocs/op
+BenchmarkCamelCase2ModifiedUnicode-10                  	60359767	        19.34 ns/op	 465.25 MB/s	       3 B/op	       1 allocs/op
+BenchmarkCamelCase2CaseASCIILong-10                    	23820117	        50.29 ns/op	 835.15 MB/s	      48 B/op	       1 allocs/op
+BenchmarkCamelCase2ModifiedLong-10                     	30006562	        40.16 ns/op	 722.07 MB/s	      32 B/op	       1 allocs/op
+BenchmarkCamelCase2ModifiedLongSpecialChars-10         	23478291	        50.06 ns/op	 599.24 MB/s	      24 B/op	       1 allocs/op
+BenchmarkCamelCase2ModifiedSimple-10                   	53042091	        22.14 ns/op	 496.89 MB/s	      16 B/op	       1 allocs/op
+BenchmarkCamelCase2ModifiedUnicode2-10                 	35215788	        33.37 ns/op	 779.24 MB/s	       3 B/op	       1 allocs/op
+BenchmarkCamelCase2LeadingUnderscoresDigitUpper-10     	61338716	        19.12 ns/op	 313.74 MB/s	       5 B/op	       1 allocs/op
+BenchmarkCamelCase2DigitUpper-10                       	65307898	        17.92 ns/op	 279.02 MB/s	       5 B/op	       1 allocs/op
+BenchmarkCamelCase2DigitUpper2-10                      	23781684	        49.56 ns/op	 343.05 MB/s	      16 B/op	       1 allocs/op
+BenchmarkKebabUnchangedLong-10                         	23294826	        50.73 ns/op	 650.45 MB/s	      48 B/op	       1 allocs/op
+BenchmarkKebabUnchangedSimple-10                       	44529930	        26.06 ns/op	 422.06 MB/s	      16 B/op	       1 allocs/op
+BenchmarkKebabModifiedUnicode-10                       	45033282	        26.04 ns/op	 345.64 MB/s	       3 B/op	       1 allocs/op
+BenchmarkKebabCaseASCIILong-10                         	18482223	        63.96 ns/op	 656.63 MB/s	      48 B/op	       1 allocs/op
+BenchmarkKebabModifiedLong-10                          	25784247	        45.29 ns/op	 640.28 MB/s	      48 B/op	       1 allocs/op
+BenchmarkKebabModifiedLongSpecialChars-10              	19730175	        59.93 ns/op	 500.59 MB/s	      24 B/op	       1 allocs/op
+BenchmarkKebabModifiedSimple-10                        	44769924	        26.14 ns/op	 420.76 MB/s	      16 B/op	       1 allocs/op
+BenchmarkKebabModifiedUnicode2-10                      	26921976	        44.03 ns/op	 590.50 MB/s	       3 B/op	       1 allocs/op
+BenchmarkKebabLeadingUnderscoresDigitUpper-10          	53206620	        21.96 ns/op	 273.19 MB/s	       5 B/op	       1 allocs/op
+BenchmarkKebabDigitUpper-10                            	55775578	        21.01 ns/op	 237.95 MB/s	       5 B/op	       1 allocs/op
+BenchmarkKebabDigitUpper2-10                           	23555313	        50.26 ns/op	 338.22 MB/s	      24 B/op	       1 allocs/op
+BenchmarkPascalCase-10                                 	23738930	        49.78 ns/op	 843.64 MB/s	      48 B/op	       1 allocs/op
+BenchmarkPascalUnchangedLong-10                        	29487741	        39.70 ns/op	 831.28 MB/s	      32 B/op	       1 allocs/op
+BenchmarkPascalUnchangedSimple-10                      	53841940	        21.83 ns/op	 503.88 MB/s	      16 B/op	       1 allocs/op
+BenchmarkPascalModifiedUnicode-10                      	62844633	        18.98 ns/op	 474.24 MB/s	       3 B/op	       1 allocs/op
+BenchmarkPascalCaseASCIILong-10                        	23650135	        49.74 ns/op	 844.41 MB/s	      48 B/op	       1 allocs/op
+BenchmarkPascalModifiedLong-10                         	30428760	        38.54 ns/op	 752.49 MB/s	      32 B/op	       1 allocs/op
+BenchmarkPascalModifiedLongSpecialChars-10             	22934190	        51.30 ns/op	 584.82 MB/s	      24 B/op	       1 allocs/op
+BenchmarkPascalModifiedSimple-10                       	53469780	        21.81 ns/op	 504.26 MB/s	      16 B/op	       1 allocs/op
+BenchmarkPascalModifiedUnicode2-10                     	35803972	        32.69 ns/op	 795.24 MB/s	       3 B/op	       1 allocs/op
+BenchmarkPascalLeadingUnderscoresDigitUpper-10         	59869657	        19.43 ns/op	 308.84 MB/s	       5 B/op	       1 allocs/op
+BenchmarkPascalDigitUpper-10                           	61236464	        19.33 ns/op	 258.68 MB/s	       5 B/op	       1 allocs/op
+BenchmarkPascalDigitUpper2-10                          	24046971	        49.14 ns/op	 345.94 MB/s	      16 B/op	       1 allocs/op
+BenchmarkSnakeCase-10                                  	18462484	        64.02 ns/op	 656.00 MB/s	      48 B/op	       1 allocs/op
+BenchmarkSnakeUnchangedLong-10                         	62664820	        19.04 ns/op	1733.61 MB/s	       0 B/op	       0 allocs/op
+BenchmarkSnakeUnchangedSimple-10                       	160335921	         7.505 ns/op	1465.65 MB/s	       0 B/op	       0 allocs/op
+BenchmarkSnakeModifiedUnicode-10                       	44981794	        26.14 ns/op	 344.29 MB/s	       3 B/op	       1 allocs/op
+BenchmarkSnakeModifiedLong-10                          	25800046	        45.40 ns/op	 638.75 MB/s	      48 B/op	       1 allocs/op
+BenchmarkSnakeModifiedLongSpecialChars-10              	19713968	        59.87 ns/op	 501.09 MB/s	      24 B/op	       1 allocs/op
+BenchmarkSnakeModifiedSimple-10                        	44747455	        26.13 ns/op	 420.99 MB/s	      16 B/op	       1 allocs/op
+BenchmarkSnakeModifiedUnicode2-10                      	26863591	        43.94 ns/op	 591.71 MB/s	       3 B/op	       1 allocs/op
+BenchmarkSnakeLeadingUnderscoresDigitUpper-10          	51657895	        22.38 ns/op	 268.14 MB/s	       5 B/op	       1 allocs/op
+BenchmarkSnakeDigitUpper-10                            	56030910	        21.00 ns/op	 238.10 MB/s	       5 B/op	       1 allocs/op
+BenchmarkSnakeDigitUpper2-10                           	23194904	        50.19 ns/op	 338.69 MB/s	      24 B/op	       1 allocs/op
+BenchmarkBufferSnakeUnchangedLong-10                   	62779154	        19.05 ns/op	1732.64 MB/s	       0 B/op	       0 allocs/op
+BenchmarkBufferSnakeUnchangedSimple-10                 	160249213	         7.498 ns/op	1467.00 MB/s	       0 B/op	       0 allocs/op
+BenchmarkBufferSnakeModifiedUnicode-10                 	25435852	        45.48 ns/op	 197.88 MB/s	      67 B/op	       2 allocs/op
+BenchmarkBufferSnakeCaseASCIILong-10                   	10128679	       117.6 ns/op	 357.14 MB/s	     112 B/op	       2 allocs/op
+BenchmarkBufferSnakeModifiedLong-10                    	12759944	        92.79 ns/op	 312.55 MB/s	     112 B/op	       2 allocs/op
+BenchmarkBufferSnakeModifiedLongSpecialChars-10        	12600464	        94.36 ns/op	 317.92 MB/s	      88 B/op	       2 allocs/op
+BenchmarkBufferSnakeModifiedSimple-10                  	24724106	        48.75 ns/op	 225.63 MB/s	      80 B/op	       2 allocs/op
+BenchmarkBufferSnakeModifiedUnicode2-10                	20466726	        56.88 ns/op	 457.11 MB/s	      67 B/op	       2 allocs/op
+BenchmarkBufferSnakeLeadingUnderscoresDigitUpper-10    	25063878	        46.97 ns/op	 127.75 MB/s	      69 B/op	       2 allocs/op
+BenchmarkBufferSnakeDigitUpper-10                      	26295822	        44.49 ns/op	 112.39 MB/s	      69 B/op	       2 allocs/op
+BenchmarkBufferSnakeDigitUpper2-10                     	14094949	        84.38 ns/op	 201.48 MB/s	      88 B/op	       2 allocs/op
+PASS
+ok  	github.com/veggiemonk/strcase	72.260s
