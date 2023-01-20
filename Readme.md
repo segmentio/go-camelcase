@@ -1,26 +1,11 @@
 # STRCASE
 
-Forked from segmentio repo: go-camelcase and go-snakecase 
+Forked from [segmentio](https://github.com/segmentio) repo: 
+- [go-camelcase](https://github.com/segmentio/go-camelcase) 
+- [go-snakecase](https://github.com/segmentio/go-snakecase) 
 
 
-## go-camelcase
-
-Fast camelcase implementation that avoids Go's regexps. Direct fork of our [snakecase](https://github.com/segmentio/go-snakecase) implementation.
-
---
-
-    import "github.com/segmentio/go-camelcase"
-
-Convert strings to camelCase
-
-### Usage
-
-#### func  Camelcase
-
-```go
-func CamelCase(str string) string
-```
-Camel case representation of `str`.
+## [go-camelcase](https://github.com/segmentio/go-camelcase)
 
 ## License
 
@@ -28,7 +13,7 @@ Camel case representation of `str`.
 
 
 
-## go-snakecase
+## [go-snakecase](https://github.com/segmentio/go-snakecase)
 
 Fast snakecase implementation, believe it or not this was a large bottleneck in our application, Go's regexps are very slow.
 
