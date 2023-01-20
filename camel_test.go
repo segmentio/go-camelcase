@@ -1,15 +1,13 @@
-package camelcase
+package strcase
 
 import "testing"
 
-var ops int = 1e6
-
-type sample struct {
+type TT struct {
 	str, out string
 }
 
-func TestCamelcase(t *testing.T) {
-	samples := []sample{
+func TestCamelCase(t *testing.T) {
+	samples := []TT{
 		{"sample text", "sampleText"},
 		{"sample-text", "sampleText"},
 		{"sample_text", "sampleText"},
@@ -30,14 +28,14 @@ func TestCamelcase(t *testing.T) {
 	}
 
 	for _, sample := range samples {
-		if out := Camelcase(sample.str); out != sample.out {
+		if out := CamelCase(sample.str); out != sample.out {
 			t.Errorf("got %q from %q, expected %q", out, sample.str, sample.out)
 		}
 	}
 }
 
-func BenchmarkCamelcase(t *testing.B) {
+func BenchmarkCamelCase(t *testing.B) {
 	for i := 0; i < t.N; i++ {
-		Camelcase("some sample text here_noething:too$amazing")
+		CamelCase("some sample text here_noething:too$amazing")
 	}
 }
