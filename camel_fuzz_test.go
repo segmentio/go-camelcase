@@ -32,9 +32,9 @@ func FuzzCamelCase(f *testing.F) {
 	}
 	f.Fuzz(
 		func(t *testing.T, a string) {
-			x := CamelCase(a)
+			x := Camel(a)
 			if utf8.ValidString(a) && !utf8.ValidString(x) {
-				t.Errorf("CamelCase produced invalid UTF-8 string %q", x)
+				t.Errorf("Camel produced invalid UTF-8 string %q", x)
 			}
 		},
 	)

@@ -1,0 +1,23 @@
+output:
+  format: colored-line-number
+linters:
+  enable:
+    # full list https://golangci-lint.run/usage/linters/
+    - errcheck    # Detect unchecked errors
+    - gosimple    # Suggest code simplifications
+    - govet       # Reports suspicious constructs
+    - staticcheck # go vet on steroids
+    - typecheck   # Standard Go type checks
+    - gocyclo     # or cyclop # Detect cyclomatic complexity
+    - gofumpt     # Enforce standard formatting
+    - goimports   # Ensure standard import formatting/ordering
+    - misspell    # Fix spelling errors
+    - revive      # General purpose linter
+    - ineffassign # Detects unused variable assignments
+    - unused      # Detects unused constants variables functions and types
+    - unparam     # Detects unused function parameters
+    - unconvert   # Detects unnecessary type conversions
+    - goerr113   # Enforce standard error handling practices
+    - nakedret    # Detect naked returns
+    - tparallel   # Detects inappropriate use of t.Parallel()
+

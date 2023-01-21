@@ -26,7 +26,7 @@ func main() {
 		scanner := bufio.NewScanner(os.Stdin)
 		for scanner.Scan() {
 			line := scanner.Text()
-			fmt.Println(strcase.KebabCase(line))
+			fmt.Println(strcase.Kebab(line))
 		}
 		if err := scanner.Err(); err != nil {
 			fmt.Printf("error: %s\n", err)
@@ -46,7 +46,7 @@ func main() {
 			scanner := bufio.NewScanner(os.Stdin)
 			for scanner.Scan() {
 				line := scanner.Text()
-				fmt.Println(strcase.KebabCase(line))
+				fmt.Println(strcase.Kebab(line))
 			}
 			if err := scanner.Err(); err != nil {
 				_, _ = fmt.Fprintf(os.Stderr, "error: %s\n", err)
@@ -55,13 +55,13 @@ func main() {
 			return
 		}
 
-		fmt.Println(strcase.KebabCase(os.Args[1]))
+		fmt.Println(strcase.Kebab(os.Args[1]))
 		return
 	}
 
 	if hasMoreArgs {
 		for _, arg := range os.Args[1:] {
-			fmt.Println(strcase.KebabCase(arg))
+			fmt.Println(strcase.Kebab(arg))
 		}
 	}
 }

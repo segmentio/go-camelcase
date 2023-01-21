@@ -2,8 +2,8 @@ package strcase
 
 const dashByte = '-'
 
-// KebabCase transform the given string as `kebab-case`.
-func KebabCase(s string) string {
+// Kebab transform the given string as `kebab-case`.
+func Kebab(s string) string {
 	idx := 0
 	hasLower := false
 	hasDash := false

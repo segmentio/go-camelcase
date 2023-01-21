@@ -32,9 +32,9 @@ func FuzzKebabCase(f *testing.F) {
 	}
 	f.Fuzz(
 		func(t *testing.T, a string) {
-			x := KebabCase(a)
+			x := Kebab(a)
 			if utf8.ValidString(a) && !utf8.ValidString(x) {
-				t.Errorf("KebabCase produced invalid UTF-8 string %q", x)
+				t.Errorf("Kebab produced invalid UTF-8 string %q", x)
 			}
 		},
 	)

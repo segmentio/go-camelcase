@@ -6,7 +6,7 @@ import (
 )
 
 func BenchmarkBufferSnakeUnchangedLong(b *testing.B) {
-	var s = "invite_your_customers_add_invites"
+	s := "invite_your_customers_add_invites"
 	b.SetBytes(int64(len(s)))
 	for n := 0; n < b.N; n++ {
 		snakeByteBuffer(s)
@@ -14,7 +14,7 @@ func BenchmarkBufferSnakeUnchangedLong(b *testing.B) {
 }
 
 func BenchmarkBufferSnakeUnchangedSimple(b *testing.B) {
-	var s = "sample_text"
+	s := "sample_text"
 	b.SetBytes(int64(len(s)))
 	for n := 0; n < b.N; n++ {
 		snakeByteBuffer(s)
@@ -22,7 +22,7 @@ func BenchmarkBufferSnakeUnchangedSimple(b *testing.B) {
 }
 
 func BenchmarkBufferSnakeModifiedUnicode(b *testing.B) {
-	var s = "ß_ƒ_foo"
+	s := "ß_ƒ_foo"
 	b.SetBytes(int64(len(s)))
 	for n := 0; n < b.N; n++ {
 		snakeByteBuffer(s)
@@ -30,7 +30,7 @@ func BenchmarkBufferSnakeModifiedUnicode(b *testing.B) {
 }
 
 func BenchmarkBufferSnakeCaseASCIILong(b *testing.B) {
-	var s = "some sample text here_noething:too$amazing"
+	s := "some sample text here_noething:too$amazing"
 	b.SetBytes(int64(len(s)))
 	for i := 0; i < b.N; i++ {
 		snakeByteBuffer(s)
@@ -38,7 +38,7 @@ func BenchmarkBufferSnakeCaseASCIILong(b *testing.B) {
 }
 
 func BenchmarkBufferSnakeModifiedLong(b *testing.B) {
-	var s = "inviteYourCustomersAddInvites"
+	s := "inviteYourCustomersAddInvites"
 	b.SetBytes(int64(len(s)))
 	for n := 0; n < b.N; n++ {
 		snakeByteBuffer(s)
@@ -46,7 +46,7 @@ func BenchmarkBufferSnakeModifiedLong(b *testing.B) {
 }
 
 func BenchmarkBufferSnakeModifiedLongSpecialChars(b *testing.B) {
-	var s = "FOO:BAR$BAZ__Sample    Text___"
+	s := "FOO:BAR$BAZ__Sample    Text___"
 	b.SetBytes(int64(len(s)))
 	for n := 0; n < b.N; n++ {
 		snakeByteBuffer(s)
@@ -54,7 +54,7 @@ func BenchmarkBufferSnakeModifiedLongSpecialChars(b *testing.B) {
 }
 
 func BenchmarkBufferSnakeModifiedSimple(b *testing.B) {
-	var s = "sample text"
+	s := "sample text"
 	b.SetBytes(int64(len(s)))
 	for n := 0; n < b.N; n++ {
 		snakeByteBuffer("sample text")
@@ -62,7 +62,7 @@ func BenchmarkBufferSnakeModifiedSimple(b *testing.B) {
 }
 
 func BenchmarkBufferSnakeModifiedUnicode2(b *testing.B) {
-	var s = "ẞ•¶§ƒ˚foo˙∆˚¬"
+	s := "ẞ•¶§ƒ˚foo˙∆˚¬"
 	b.SetBytes(int64(len(s)))
 	for n := 0; n < b.N; n++ {
 		snakeByteBuffer(s)
@@ -70,7 +70,7 @@ func BenchmarkBufferSnakeModifiedUnicode2(b *testing.B) {
 }
 
 func BenchmarkBufferSnakeLeadingUnderscoresDigitUpper(b *testing.B) {
-	var s = "_5TEst"
+	s := "_5TEst"
 	b.SetBytes(int64(len(s)))
 	for n := 0; n < b.N; n++ {
 		snakeByteBuffer(s)
@@ -78,7 +78,7 @@ func BenchmarkBufferSnakeLeadingUnderscoresDigitUpper(b *testing.B) {
 }
 
 func BenchmarkBufferSnakeDigitUpper(b *testing.B) {
-	var s = "5TEst"
+	s := "5TEst"
 	b.SetBytes(int64(len(s)))
 	for n := 0; n < b.N; n++ {
 		snakeByteBuffer(s)
@@ -86,16 +86,17 @@ func BenchmarkBufferSnakeDigitUpper(b *testing.B) {
 }
 
 func BenchmarkBufferSnakeDigitUpper2(b *testing.B) {
-	var s = "lk0B@bFmjrLQ_Z6YL"
+	s := "lk0B@bFmjrLQ_Z6YL"
 	b.SetBytes(int64(len(s)))
 	for n := 0; n < b.N; n++ {
 		snakeByteBuffer(s)
 	}
 }
 
-// snakeByteBuffer the given string.
-// it is the same function as SnakeCase but uses a bytes.Buffer instead of []byte
-func snakeByteBuffer(s string) string {
+// snakeByteBuffer returns the snake-case of the given string.
+// it is the same function as Snake but uses a bytes.Buffer instead of []byte
+// in order to test the performance of the bytes.Buffer vs []byte.
+func snakeByteBuffer(s string) string { // nolint: unparam
 	idx := 0
 	hasLower := false
 	hasUnderscore := false

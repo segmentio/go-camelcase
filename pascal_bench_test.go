@@ -8,94 +8,94 @@ func BenchmarkPascalCase(b *testing.B) {
 	s := "some sample text here_noething:too$amazing"
 	b.SetBytes(int64(len(s)))
 	for i := 0; i < b.N; i++ {
-		PascalCase(s)
+		Pascal(s)
 	}
 }
 
 func BenchmarkPascalUnchangedLong(b *testing.B) {
-	var s = "invite_your_customers_add_invites"
+	s := "invite_your_customers_add_invites"
 	b.SetBytes(int64(len(s)))
 	for n := 0; n < b.N; n++ {
-		PascalCase(s)
+		Pascal(s)
 	}
 }
 
 func BenchmarkPascalUnchangedSimple(b *testing.B) {
-	var s = "sample_text"
+	s := "sample_text"
 	b.SetBytes(int64(len(s)))
 	for n := 0; n < b.N; n++ {
-		PascalCase(s)
+		Pascal(s)
 	}
 }
 
 func BenchmarkPascalModifiedUnicode(b *testing.B) {
-	var s = "ß_ƒ_foo"
+	s := "ß_ƒ_foo"
 	b.SetBytes(int64(len(s)))
 	for n := 0; n < b.N; n++ {
-		PascalCase(s)
+		Pascal(s)
 	}
 }
 
 func BenchmarkPascalCaseASCIILong(b *testing.B) {
-	var s = "some sample text here_noething:too$amazing"
+	s := "some sample text here_noething:too$amazing"
 	b.SetBytes(int64(len(s)))
 	for i := 0; i < b.N; i++ {
-		PascalCase(s)
+		Pascal(s)
 	}
 }
 
 func BenchmarkPascalModifiedLong(b *testing.B) {
-	var s = "inviteYourCustomersAddInvites"
+	s := "inviteYourCustomersAddInvites"
 	b.SetBytes(int64(len(s)))
 	for n := 0; n < b.N; n++ {
-		PascalCase(s)
+		Pascal(s)
 	}
 }
 
 func BenchmarkPascalModifiedLongSpecialChars(b *testing.B) {
-	var s = "FOO:BAR$BAZ__Sample    Text___"
+	s := "FOO:BAR$BAZ__Sample    Text___"
 	b.SetBytes(int64(len(s)))
 	for n := 0; n < b.N; n++ {
-		PascalCase(s)
+		Pascal(s)
 	}
 }
 
 func BenchmarkPascalModifiedSimple(b *testing.B) {
-	var s = "sample text"
+	s := "sample text"
 	b.SetBytes(int64(len(s)))
 	for n := 0; n < b.N; n++ {
-		PascalCase("sample text")
+		Pascal("sample text")
 	}
 }
 
 func BenchmarkPascalModifiedUnicode2(b *testing.B) {
-	var s = "ẞ•¶§ƒ˚foo˙∆˚¬"
+	s := "ẞ•¶§ƒ˚foo˙∆˚¬"
 	b.SetBytes(int64(len(s)))
 	for n := 0; n < b.N; n++ {
-		PascalCase(s)
+		Pascal(s)
 	}
 }
 
 func BenchmarkPascalLeadingUnderscoresDigitUpper(b *testing.B) {
-	var s = "_5TEst"
+	s := "_5TEst"
 	b.SetBytes(int64(len(s)))
 	for n := 0; n < b.N; n++ {
-		PascalCase(s)
+		Pascal(s)
 	}
 }
 
 func BenchmarkPascalDigitUpper(b *testing.B) {
-	var s = "5TEst"
+	s := "5TEst"
 	b.SetBytes(int64(len(s)))
 	for n := 0; n < b.N; n++ {
-		PascalCase(s)
+		Pascal(s)
 	}
 }
 
 func BenchmarkPascalDigitUpper2(b *testing.B) {
-	var s = "lk0B@bFmjrLQ_Z6YL"
+	s := "lk0B@bFmjrLQ_Z6YL"
 	b.SetBytes(int64(len(s)))
 	for n := 0; n < b.N; n++ {
-		PascalCase(s)
+		Pascal(s)
 	}
 }

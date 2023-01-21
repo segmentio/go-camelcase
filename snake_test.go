@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func TestSnakeCase(t *testing.T) {
+func TestSnake(t *testing.T) {
 	samples := []TT{
 		{"@49L0S145_¬fwHƒ0TSLNVp", "49l0s145_fw_h_0tslnvp"},
 		{"lk0B@bFmjrLQ_Z6YL", "lk0_b_b_fmjr_lq_z6yl"},
@@ -58,24 +58,24 @@ func TestSnakeCase(t *testing.T) {
 	}
 
 	for _, sample := range samples {
-		if out := SnakeCase(sample.str); out != sample.out {
+		if out := Snake(sample.str); out != sample.out {
 			t.Errorf("got %q from %q, expected %q", out, sample.str, sample.out)
 		}
 	}
 }
 
-func ExampleSnakeCase() {
-	fmt.Println(SnakeCase("sample text"))
-	fmt.Println(SnakeCase("sample-text"))
-	fmt.Println(SnakeCase("sample_text"))
-	fmt.Println(SnakeCase("sample___text"))
-	fmt.Println(SnakeCase("sampleText"))
-	fmt.Println(SnakeCase(">> samPLE text <<"))
-	fmt.Println(SnakeCase("sample 2 Text"))
-	fmt.Println(SnakeCase("SAMPLE 2 TEXT"))
-	fmt.Println(SnakeCase("inviteYourCustomersAddInvites"))
-	fmt.Println(SnakeCase("2FA Enabled"))
-	fmt.Println(SnakeCase("Enabled 2FA"))
+func ExampleSnake() {
+	fmt.Println(Snake("sample text"))
+	fmt.Println(Snake("sample-text"))
+	fmt.Println(Snake("sample_text"))
+	fmt.Println(Snake("sample___text"))
+	fmt.Println(Snake("sampleText"))
+	fmt.Println(Snake(">> samPLE text <<"))
+	fmt.Println(Snake("sample 2 Text"))
+	fmt.Println(Snake("SAMPLE 2 TEXT"))
+	fmt.Println(Snake("inviteYourCustomersAddInvites"))
+	fmt.Println(Snake("2FA Enabled"))
+	fmt.Println(Snake("Enabled 2FA"))
 	// Output:
 	// sample_text
 	// sample_text
@@ -90,48 +90,48 @@ func ExampleSnakeCase() {
 	// enabled_2fa
 }
 
-func ExampleSnakeCase_withSpace() {
-	fmt.Println(SnakeCase("   sample   2    Text   "))
+func ExampleSnake_withSpace() {
+	fmt.Println(Snake("   sample   2    Text   "))
 	// Output:
 	// sample_2_text
 }
 
-func ExampleSnakeCase_multiline() {
-	fmt.Println(SnakeCase("here\nis\na\nmultiline\nstring"))
+func ExampleSnake_multiline() {
+	fmt.Println(Snake("here\nis\na\nmultiline\nstring"))
 	// Output:
 	// here_is_a_multiline_string
 }
 
-func ExampleSnakeCase_quoted() {
-	fmt.Println(SnakeCase("\"hello world\""))
+func ExampleSnake_quoted() {
+	fmt.Println(Snake("\"hello world\""))
 	// Output:
 	// hello_world
 }
 
-func ExampleSnakeCase_swedish() {
+func ExampleSnake_swedish() {
 	// Swedish and non ASCII char are not supported :(
 	// open an issue if this is something you need
 	//
 	// want:
 	// när-såg-du-en-kråka-väl-bita-en-man
-	fmt.Println(SnakeCase("När såg du en kråka väl bita en man?"))
+	fmt.Println(Snake("När såg du en kråka väl bita en man?"))
 	// Output:
 	// n_r_s_g_du_en_kr_ka_v_l_bita_en_man
 }
 
-func ExampleSnakeCase_nonASCII() {
-	fmt.Println(SnakeCase("   $#$sample   2    Text   "))
-	fmt.Println(SnakeCase("___$$Base64Encode"))
-	fmt.Println(SnakeCase("FOO#BAR#BAZ"))
-	fmt.Println(SnakeCase("FOO:BAR$BAZ"))
-	fmt.Println(SnakeCase("FOO#BAR#BAZ"))
-	fmt.Println(SnakeCase("something.com"))
-	fmt.Println(SnakeCase("$something%"))
-	fmt.Println(SnakeCase("something.com"))
-	fmt.Println(SnakeCase("•¶§ƒ˚foo˙∆˚¬"))
-	fmt.Println(SnakeCase("•¶§ƒ˚foo˙∆˚¬bar"))
-	fmt.Println(SnakeCase("•¶§ƒ˚foo˙∆˚¬ bar"))
-	fmt.Println(SnakeCase("CStringRef"))
+func ExampleSnake_nonASCII() {
+	fmt.Println(Snake("   $#$sample   2    Text   "))
+	fmt.Println(Snake("___$$Base64Encode"))
+	fmt.Println(Snake("FOO#BAR#BAZ"))
+	fmt.Println(Snake("FOO:BAR$BAZ"))
+	fmt.Println(Snake("FOO#BAR#BAZ"))
+	fmt.Println(Snake("something.com"))
+	fmt.Println(Snake("$something%"))
+	fmt.Println(Snake("something.com"))
+	fmt.Println(Snake("•¶§ƒ˚foo˙∆˚¬"))
+	fmt.Println(Snake("•¶§ƒ˚foo˙∆˚¬bar"))
+	fmt.Println(Snake("•¶§ƒ˚foo˙∆˚¬ bar"))
+	fmt.Println(Snake("CStringRef"))
 
 	// Output:
 	// sample_2_text

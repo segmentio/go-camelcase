@@ -32,9 +32,9 @@ func FuzzPascalCase(f *testing.F) {
 	}
 	f.Fuzz(
 		func(t *testing.T, a string) {
-			x := PascalCase(a)
+			x := Pascal(a)
 			if utf8.ValidString(a) && !utf8.ValidString(x) {
-				t.Errorf("PascalCase produced invalid UTF-8 string %q", x)
+				t.Errorf("Pascal produced invalid UTF-8 string %q", x)
 			}
 		},
 	)

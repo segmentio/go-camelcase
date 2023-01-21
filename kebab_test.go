@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func TestKebabCase(t *testing.T) {
+func TestKebab(t *testing.T) {
 	samples := []TT{
 		{"sample text", "sample-text"},
 		{"sample-text", "sample-text"},
@@ -57,24 +57,24 @@ func TestKebabCase(t *testing.T) {
 	}
 
 	for _, sample := range samples {
-		if out := KebabCase(sample.str); out != sample.out {
+		if out := Kebab(sample.str); out != sample.out {
 			t.Errorf("got %q from %q, expected %q", out, sample.str, sample.out)
 		}
 	}
 }
 
-func ExampleKebabCase() {
-	fmt.Println(KebabCase("sample text"))
-	fmt.Println(KebabCase("sample-text"))
-	fmt.Println(KebabCase("sample_text"))
-	fmt.Println(KebabCase("sample___text"))
-	fmt.Println(KebabCase("sampleText"))
-	fmt.Println(KebabCase(">> samPLE text <<"))
-	fmt.Println(KebabCase("sample 2 Text"))
-	fmt.Println(KebabCase("SAMPLE 2 TEXT"))
-	fmt.Println(KebabCase("inviteYourCustomersAddInvites"))
-	fmt.Println(KebabCase("2FA Enabled"))
-	fmt.Println(KebabCase("Enabled 2FA"))
+func ExampleKebab() {
+	fmt.Println(Kebab("sample text"))
+	fmt.Println(Kebab("sample-text"))
+	fmt.Println(Kebab("sample_text"))
+	fmt.Println(Kebab("sample___text"))
+	fmt.Println(Kebab("sampleText"))
+	fmt.Println(Kebab(">> samPLE text <<"))
+	fmt.Println(Kebab("sample 2 Text"))
+	fmt.Println(Kebab("SAMPLE 2 TEXT"))
+	fmt.Println(Kebab("inviteYourCustomersAddInvites"))
+	fmt.Println(Kebab("2FA Enabled"))
+	fmt.Println(Kebab("Enabled 2FA"))
 	// Output:
 	// sample-text
 	// sample-text
@@ -89,54 +89,54 @@ func ExampleKebabCase() {
 	// enabled-2fa
 }
 
-func ExampleKebabCase_withSpace() {
-	fmt.Println(KebabCase("   sample   2    Text   "))
+func ExampleKebab_withSpace() {
+	fmt.Println(Kebab("   sample   2    Text   "))
 	// Output:
 	// sample-2-text
 }
 
-func ExampleKebabCase_long() {
-	fmt.Println(KebabCase("super long sentence that is not really necessary but we need to try it"))
+func ExampleKebab_long() {
+	fmt.Println(Kebab("super long sentence that is not really necessary but we need to try it"))
 	// Output:
 	// super-long-sentence-that-is-not-really-necessary-but-we-need-to-try-it
 }
 
-func ExampleKebabCase_multiline() {
-	fmt.Println(KebabCase("here\nis\na\nmultiline\nstring"))
+func ExampleKebab_multiline() {
+	fmt.Println(Kebab("here\nis\na\nmultiline\nstring"))
 	// Output:
 	// here-is-a-multiline-string
 }
 
-func ExampleKebabCase_quoted() {
-	fmt.Println(KebabCase("\"hello world\""))
+func ExampleKebab_quoted() {
+	fmt.Println(Kebab("\"hello world\""))
 	// Output:
 	// hello-world
 }
 
-func ExampleKebabCase_swedish() {
+func ExampleKebab_swedish() {
 	// Swedish and non ASCII char are not supported :(
 	// open an issue if this is something you need
 	//
 	// want:
 	// när-såg-du-en-kråka-väl-bita-en-man
-	fmt.Println(KebabCase("När såg du en kråka väl bita en man?"))
+	fmt.Println(Kebab("När såg du en kråka väl bita en man?"))
 	// Output:
 	// n-r-s-g-du-en-kr-ka-v-l-bita-en-man
 }
 
-func ExampleKebabCase_nonASCII() {
-	fmt.Println(KebabCase("   $#$sample   2    Text   "))
-	fmt.Println(KebabCase("___$$Base64Encode"))
-	fmt.Println(KebabCase("FOO#BAR#BAZ"))
-	fmt.Println(KebabCase("FOO:BAR$BAZ"))
-	fmt.Println(KebabCase("FOO#BAR#BAZ"))
-	fmt.Println(KebabCase("something.com"))
-	fmt.Println(KebabCase("$something%"))
-	fmt.Println(KebabCase("something.com"))
-	fmt.Println(KebabCase("•¶§ƒ˚foo˙∆˚¬"))
-	fmt.Println(KebabCase("•¶§ƒ˚foo˙∆˚¬bar"))
-	fmt.Println(KebabCase("•¶§ƒ˚foo˙∆˚¬ bar"))
-	fmt.Println(KebabCase("CStringRef"))
+func ExampleKebab_nonASCII() {
+	fmt.Println(Kebab("   $#$sample   2    Text   "))
+	fmt.Println(Kebab("___$$Base64Encode"))
+	fmt.Println(Kebab("FOO#BAR#BAZ"))
+	fmt.Println(Kebab("FOO:BAR$BAZ"))
+	fmt.Println(Kebab("FOO#BAR#BAZ"))
+	fmt.Println(Kebab("something.com"))
+	fmt.Println(Kebab("$something%"))
+	fmt.Println(Kebab("something.com"))
+	fmt.Println(Kebab("•¶§ƒ˚foo˙∆˚¬"))
+	fmt.Println(Kebab("•¶§ƒ˚foo˙∆˚¬bar"))
+	fmt.Println(Kebab("•¶§ƒ˚foo˙∆˚¬ bar"))
+	fmt.Println(Kebab("CStringRef"))
 
 	// Output:
 	// sample-2-text
@@ -153,18 +153,18 @@ func ExampleKebabCase_nonASCII() {
 	// cstring-ref
 }
 
-func ExampleKebabCase_cryptic() {
-	fmt.Println(KebabCase("5test"))
-	fmt.Println(KebabCase("test5"))
-	fmt.Println(KebabCase("THE5r"))
-	fmt.Println(KebabCase("5TEst"))
-	fmt.Println(KebabCase("_5TEst"))
-	fmt.Println(KebabCase("@%#&5TEst"))
-	fmt.Println(KebabCase("edf_6N"))
-	fmt.Println(KebabCase("f_pX9"))
-	fmt.Println(KebabCase("p_z9Rg"))
-	fmt.Println(KebabCase("@49L0S145_¬fwHƒ0TSLNVp"))
-	fmt.Println(KebabCase("lk0B@bFmjrLQ_Z6YL"))
+func ExampleKebab_cryptic() {
+	fmt.Println(Kebab("5test"))
+	fmt.Println(Kebab("test5"))
+	fmt.Println(Kebab("THE5r"))
+	fmt.Println(Kebab("5TEst"))
+	fmt.Println(Kebab("_5TEst"))
+	fmt.Println(Kebab("@%#&5TEst"))
+	fmt.Println(Kebab("edf_6N"))
+	fmt.Println(Kebab("f_pX9"))
+	fmt.Println(Kebab("p_z9Rg"))
+	fmt.Println(Kebab("@49L0S145_¬fwHƒ0TSLNVp"))
+	fmt.Println(Kebab("lk0B@bFmjrLQ_Z6YL"))
 	// Output:
 	// 5test
 	// test5

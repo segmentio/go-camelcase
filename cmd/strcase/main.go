@@ -78,13 +78,13 @@ func main() {
 		for _, arg := range os.Args[2:] {
 			switch subcmd {
 			case "camel":
-				fmt.Println(strcase.CamelCase(arg))
+				fmt.Println(strcase.Camel(arg))
 			case "kebab":
-				fmt.Println(strcase.KebabCase(arg))
+				fmt.Println(strcase.Kebab(arg))
 			case "pascal":
-				fmt.Println(strcase.PascalCase(arg))
+				fmt.Println(strcase.Pascal(arg))
 			case "snake":
-				fmt.Println(strcase.SnakeCase(arg))
+				fmt.Println(strcase.Snake(arg))
 			default:
 				_, _ = fmt.Fprintf(
 					os.Stderr,
@@ -110,13 +110,13 @@ func stdin() {
 		line := scanner.Text()
 		switch subcmd {
 		case "camel":
-			fmt.Println(strcase.CamelCase(line))
+			fmt.Println(strcase.Camel(line))
 		case "kebab":
-			fmt.Println(strcase.KebabCase(line))
+			fmt.Println(strcase.Kebab(line))
 		case "pascal":
-			fmt.Println(strcase.PascalCase(line))
+			fmt.Println(strcase.Pascal(line))
 		case "snake":
-			fmt.Println(strcase.SnakeCase(line))
+			fmt.Println(strcase.Snake(line))
 		default:
 			_, _ = fmt.Fprintf(
 				os.Stderr,
@@ -155,7 +155,6 @@ func checkVersion() {
 			os.Exit(0)
 		}
 	}
-
 }
 
 var (
@@ -174,5 +173,4 @@ func printVersion() {
 	fmt.Printf("Version: %s\n", version)
 	fmt.Printf("Commit: %s\n", commit)
 	fmt.Printf("Date: %s\n", date)
-
 }

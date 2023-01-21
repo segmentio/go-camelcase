@@ -2,8 +2,8 @@ package strcase
 
 const underscoreByte = '_'
 
-// SnakeCase transforms the given string as `snake_case`.
-func SnakeCase(s string) string {
+// Snake transforms the given string as `snake_case`.
+func Snake(s string) string {
 	idx := 0
 	hasLower := false
 	hasUnderscore := false

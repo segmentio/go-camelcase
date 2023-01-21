@@ -32,9 +32,9 @@ func FuzzSnakeCase(f *testing.F) {
 	}
 	f.Fuzz(
 		func(t *testing.T, a string) {
-			x := SnakeCase(a)
+			x := Snake(a)
 			if utf8.ValidString(a) && !utf8.ValidString(x) {
-				t.Errorf("SnakeCase produced invalid UTF-8 string %q", x)
+				t.Errorf("Snake produced invalid UTF-8 string %q", x)
 			}
 		},
 	)

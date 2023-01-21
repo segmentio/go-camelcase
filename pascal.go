@@ -1,7 +1,7 @@
 package strcase
 
-// PascalCase the given string.
-func PascalCase(s string) string {
+// Pascal the given string.
+func Pascal(s string) string {
 	b := make([]byte, 0, 64)
 	l := len(s)
 	i := 0

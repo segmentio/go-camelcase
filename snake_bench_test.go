@@ -8,85 +8,86 @@ func BenchmarkSnakeCase(b *testing.B) {
 	s := "some sample text here_noething:too$amazing"
 	b.SetBytes(int64(len(s)))
 	for i := 0; i < b.N; i++ {
-		SnakeCase(s)
+		Snake(s)
 	}
 }
+
 func BenchmarkSnakeUnchangedLong(b *testing.B) {
-	var s = "invite_your_customers_add_invites"
+	s := "invite_your_customers_add_invites"
 	b.SetBytes(int64(len(s)))
 	for n := 0; n < b.N; n++ {
-		SnakeCase(s)
+		Snake(s)
 	}
 }
 
 func BenchmarkSnakeUnchangedSimple(b *testing.B) {
-	var s = "sample_text"
+	s := "sample_text"
 	b.SetBytes(int64(len(s)))
 	for n := 0; n < b.N; n++ {
-		SnakeCase(s)
+		Snake(s)
 	}
 }
 
 func BenchmarkSnakeModifiedUnicode(b *testing.B) {
-	var s = "ß_ƒ_foo"
+	s := "ß_ƒ_foo"
 	b.SetBytes(int64(len(s)))
 	for n := 0; n < b.N; n++ {
-		SnakeCase(s)
+		Snake(s)
 	}
 }
 
 func BenchmarkSnakeModifiedLong(b *testing.B) {
-	var s = "inviteYourCustomersAddInvites"
+	s := "inviteYourCustomersAddInvites"
 	b.SetBytes(int64(len(s)))
 	for n := 0; n < b.N; n++ {
-		SnakeCase(s)
+		Snake(s)
 	}
 }
 
 func BenchmarkSnakeModifiedLongSpecialChars(b *testing.B) {
-	var s = "FOO:BAR$BAZ__Sample    Text___"
+	s := "FOO:BAR$BAZ__Sample    Text___"
 	b.SetBytes(int64(len(s)))
 	for n := 0; n < b.N; n++ {
-		SnakeCase(s)
+		Snake(s)
 	}
 }
 
 func BenchmarkSnakeModifiedSimple(b *testing.B) {
-	var s = "sample text"
+	s := "sample text"
 	b.SetBytes(int64(len(s)))
 	for n := 0; n < b.N; n++ {
-		SnakeCase("sample text")
+		Snake("sample text")
 	}
 }
 
 func BenchmarkSnakeModifiedUnicode2(b *testing.B) {
-	var s = "ẞ•¶§ƒ˚foo˙∆˚¬"
+	s := "ẞ•¶§ƒ˚foo˙∆˚¬"
 	b.SetBytes(int64(len(s)))
 	for n := 0; n < b.N; n++ {
-		SnakeCase(s)
+		Snake(s)
 	}
 }
 
 func BenchmarkSnakeLeadingUnderscoresDigitUpper(b *testing.B) {
-	var s = "_5TEst"
+	s := "_5TEst"
 	b.SetBytes(int64(len(s)))
 	for n := 0; n < b.N; n++ {
-		SnakeCase(s)
+		Snake(s)
 	}
 }
 
 func BenchmarkSnakeDigitUpper(b *testing.B) {
-	var s = "5TEst"
+	s := "5TEst"
 	b.SetBytes(int64(len(s)))
 	for n := 0; n < b.N; n++ {
-		SnakeCase(s)
+		Snake(s)
 	}
 }
 
 func BenchmarkSnakeDigitUpper2(b *testing.B) {
-	var s = "lk0B@bFmjrLQ_Z6YL"
+	s := "lk0B@bFmjrLQ_Z6YL"
 	b.SetBytes(int64(len(s)))
 	for n := 0; n < b.N; n++ {
-		SnakeCase(s)
+		Snake(s)
 	}
 }

@@ -1,11 +1,7 @@
 package strcase
 
-// CamelCase transforms the given string as `camelCase`.
-// Wikipedia writes it as two separate words: camel case.
-// see URL: https://en.wikipedia.org/wiki/Camel_case
-// This is confusing because uppercase and lowercase are written as one word
-// I hope you'll forgive me for using CamelCase instead of Camelcase.
-func CamelCase(s string) string {
+// Camel transforms the given string as `camelCase`.
+func Camel(s string) string {
 	b := make([]byte, 0, 64)
 	l := len(s)
 	i := 0

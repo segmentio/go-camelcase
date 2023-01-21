@@ -2,7 +2,7 @@ package strcase
 
 import "testing"
 
-func TestPascalCase(t *testing.T) {
+func TestPascal(t *testing.T) {
 	samples := []TT{
 		{"sample text", "SampleText"},
 		{"sample-text", "SampleText"},
@@ -36,7 +36,7 @@ func TestPascalCase(t *testing.T) {
 	}
 
 	for _, sample := range samples {
-		if out := PascalCase(sample.str); out != sample.out {
+		if out := Pascal(sample.str); out != sample.out {
 			t.Errorf("got %q from %q, expected %q", out, sample.str, sample.out)
 		}
 	}

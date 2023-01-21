@@ -6,7 +6,7 @@ type TT struct {
 	str, out string
 }
 
-func TestCamelCase(t *testing.T) {
+func TestCamel(t *testing.T) {
 	samples := []TT{
 		{"sample text", "sampleText"},
 		{"sample-text", "sampleText"},
@@ -40,7 +40,7 @@ func TestCamelCase(t *testing.T) {
 	}
 
 	for _, sample := range samples {
-		if out := CamelCase(sample.str); out != sample.out {
+		if out := Camel(sample.str); out != sample.out {
 			t.Errorf("got %q from %q, expected %q", out, sample.str, sample.out)
 		}
 	}
