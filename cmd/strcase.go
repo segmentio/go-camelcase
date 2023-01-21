@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"runtime/debug"
 
 	"github.com/veggiemonk/strcase"
 )
@@ -64,6 +65,7 @@ func main() {
 
 	if hasOneArg {
 		checkHelp()
+		checkVersion()
 		stdin()
 	}
 
@@ -141,4 +143,36 @@ func checkHelp() {
 			os.Exit(0)
 		}
 	}
+}
+
+func checkVersion() {
+	if len(os.Args) > 1 {
+		subcmd := os.Args[1]
+		isVersion := subcmd == "version" || subcmd == "-v" || subcmd == "--version"
+
+		if isVersion {
+			printVersion()
+			os.Exit(0)
+		}
+	}
+
+}
+
+var (
+	version = "dev"
+	commit  = "none"
+	date    = "unknown"
+)
+
+func printVersion() {
+	bi, ok := debug.ReadBuildInfo()
+	if !ok {
+		_, _ = fmt.Fprintln(os.Stderr, "error reading build-info")
+		os.Exit(1)
+	}
+	fmt.Printf("Build:\n%s\n", bi)
+	fmt.Printf("Version: %s\n", version)
+	fmt.Printf("Commit: %s\n", commit)
+	fmt.Printf("Date: %s\n", date)
+
 }

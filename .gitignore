@@ -25,4 +25,9 @@ _testmain.go
 
 # Emacs
 *~
-.idea
+# Goland/IntelliJ
+.idea/
+# VSCode
+.vscode/
+# Goreleaser
+dist/

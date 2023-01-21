@@ -49,7 +49,7 @@ func main() {
 				fmt.Println(strcase.KebabCase(line))
 			}
 			if err := scanner.Err(); err != nil {
-				fmt.Printf("error: %s\n", err)
+				_, _ = fmt.Fprintf(os.Stderr, "error: %s\n", err)
 				os.Exit(1)
 			}
 			return
